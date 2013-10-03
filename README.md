@@ -18,6 +18,13 @@ cd /path/to/repository
 git init
 ```
 ##Using GitHub (or other remote repositories)
+Clone an existing repository
+```bash
+git clone <repo url>
+```
+This downloads the entire repository, adds the 'origin' remote which points to the clone URL, and checks out the initial branch.
+
+
 Set remote URL. Note that __origin__ is often used for the \<name\> attribute.
 ```bash
 git remote add <name> <address>
@@ -35,7 +42,7 @@ Remove remote
 ```bash
 git remote rm <name>
 ```
-##Basic actions
+#Basic actions
 Add file to staging area (preparing for a commit)
 ```bash
 git add <list of files>
@@ -59,6 +66,25 @@ git push -u <remote repository name> <local branch name>
 #Example: git push -u origin master
 ```
 
+##Pulling
+Merge pull
+```bash
+git pull <remote repository name> <local branch name>
+#Example: git pull origin master
+```
+
+git pull actually does the following:
+```bash
+git fetch
+git merge origin/master
+#Use git log and you'll see why this isn't ideal
+```
+
+Rebase pull
+```bash
+git pull --rebase
+```
+
 ##Basic references
 Check what has changed since the last commit
 ```bash
@@ -68,7 +94,39 @@ git status
 git diff  #Show unstaged line differences since last commit
 git diff --staged  #Show staged line differences
 ```
+```
+git log
+```
 
+#Intermediate actions
+##Branching
+Create new branch
+```bash
+git branch <name>
+```
+
+List branches
+```bash
+git branch
+```
+
+Switch to a branch
+```bash
+git checkout <name>
+#Or if you're feeling fancy...
+git checkout -b <name> #Creates and checks out a branch
+```
+
+Merge branches
+```bash
+git checkout <branch to merge to>
+git merge <branch to merge from>
+```
+
+Delete branch
+```bash
+git branch -d cat
+```
 
 
 ##Advanced commands
