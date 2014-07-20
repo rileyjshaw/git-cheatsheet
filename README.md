@@ -200,9 +200,8 @@ git reset --hard HEAD^^
 
 
 #<a id="refs"></a>Useful references
- - ```bash
-git help <command>  #alternatively, check out the [git(1) Manual Page](https://www.kernel.org/pub/software/scm/git/docs/)
-```
+ - From terminal:
+          git help <command>  #alternatively, check out the [git(1) Manual Page](https://www.kernel.org/pub/software/scm/git/docs/)
  - [Everyday Git](https://www.kernel.org/pub/software/scm/git/docs/everyday.html)
  - [Pro Git](http://git-scm.com/book)
  - Codeschool courses: [1](https://www.codeschool.com/courses/try-git), [2](https://www.codeschool.com/courses/git-real), and [3](https://www.codeschool.com/courses/git-real-2)
