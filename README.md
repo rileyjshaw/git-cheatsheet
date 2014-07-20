@@ -10,13 +10,15 @@ git config --global user.name "Your Name"
 git config --global user.email youremail@domain.com
 git config --global color.ui true
 ```
+
 ##Setting up a local repository
 ```bash
 cd /path/to/repository
 git init
 ```
+
 ##Using GitHub (or other remote repositories)
-Clone an existing repository
+###Clone an existing repository
 ```bash
 git clone <repo url> [<folder name>]
 ```
@@ -24,25 +26,29 @@ This downloads the entire repository into its own subfolder, adds the 'origin' r
 
 A _remote URL_ points to wherever your code is stored. For the default remote, __origin__ is often used for \<name\>.
 
-Set remote URL.
+###Set remote URL
 ```bash
 git remote add <name> <address>
 #Example: git remote add origin https://github.com/rileyjshaw/git-cheatsheet.git
 ```
-Update remote URL
+
+###Update remote URL
 ```bash
 git remote set-url <name> <NEWURL>
 ```
-Show remote repositories
+
+###Show remote repositories
 ```bash
 git remote -v
 ```
-Remove remote
+
+###Remove remote
 ```bash
 git remote rm <name>
 ```
+
 #Basic actions
-Add file to staging area (preparing for a commit)
+###Add file to staging area (preparing for a commit)
 ```bash
 git add <list of files>
 git add .  #stage changed or new files in working tree (does not stage 'rm' actions)
@@ -52,13 +58,13 @@ git add *.css  #add all .css files in current directory to tracked files
 git add "*.css"  #add all css files in entire project to tracked files
 ```
 
-Remove a file from staging area
+###Remove a file from staging area
 ```bash
 git rm <list of files>  #untracks *and removes* files
 git rm <list of files> -cached  #untracks files but doesn't remove them. Usually want to add these to .gitignore
 ```
 
-Record a snapshot of the staging area via a commit
+###Record a snapshot of the staging area via a commit
 ```bash
 git commit -m "<commit message>"
 git commit -am "<commit message>"  #useful shorthand to automatically stage all tracked, modified files before the commit
@@ -66,7 +72,7 @@ git commit -am "<commit message>"  #useful shorthand to automatically stage all 
 _**Note:** Commit messages should be brief, and written in the present tense._
 >"Add PWM block for motor 2"
 
-Push all unsynced commits to a remote repository
+###Push all unsynced commits to a remote repository
 ```bash
 git push [-u] <remote repository name> <local branch name>
 #Example: git push -u origin master
