@@ -74,7 +74,6 @@ git push [-u] <remote repository name> <local branch name>
 `-u` sets the upstream repository to the specified remote. After this, you can run `git push`, `git fetch` etc without having to specify remote and branch names.
 
 ##Pulling
-Merge pull
 ```bash
 git pull [<remote repository name> <local branch name>]
 #Example: git pull origin master
@@ -89,8 +88,6 @@ git merge origin/master
 ```
 Using `git pull` can clutter your history with merges; for continuous changes where you just want your branch to reflect the upstream branch, add `--rebase` to keep your logs sane.
 
-
-Rebase pull
 ```bash
 git pull --rebase [<remote repository name> <local branch name>]
 ```
@@ -98,48 +95,48 @@ This way, merges in your history will represent points where divergent branches 
 
 ##Basic references
 ```bash
-git status #Check what has changed since the last commit
+git status  #Check what has changed since the last commit
 git diff  #Show unstaged line differences since last commit
 git diff --staged  #Show staged line differences
-git diff <file name> #Show changes in a specific file since last commit
-git diff <commit id> <commit id> #Show changes between two commits
-git log #Show repository history
-git blame <file name> #Show what revision and author last modified each line of a file
+git diff <file name>  #Show changes in a specific file since last commit
+git diff <commit id> <commit id>  #Show changes between two commits
+git log  #Show repository history
+git blame <file name>  #Show what revision and author last modified each line of a file
 ```
 
 #Intermediate actions
 ##Branching
-Create new branch
+###Create a new branch
 ```bash
 git branch <name>
 ```
 
-List branches
+###List branches
 ```bash
 git branch [-a]
 ```
 `-a` will list both local and remote branches
 
 
-Switch to a branch
+###Switch to a branch
 ```bash
 git checkout <name>
 #Or if you're feeling fancy...
 git checkout -b <name> #Creates and checks out a branch
 ```
 
-Merge branches
+###Merge branches
 ```bash
 git checkout <branch to merge to>
 git merge <branch to merge from>
 ```
 
-Delete branch locally
+###Delete a branch locally
 ```bash
 git branch -d <branch name>
 ```
 
-Delete branch locally and remotely
+###Delete a branch locally and remotely
 ```bash
 git push origin –delete <branch name>
 ```
@@ -150,7 +147,7 @@ git stash  #stashes uncommitted work away (modified tracked files & staged chang
 git stash pop  #pops the latest stashed state and reapplys the changes
 git stash list  #shows list of stashes
 ```
-There's more to stashing than this, but I reserve stash for quickly hiding the dirty parts of a branch (eg if I want to change branches without committing changes). I prefer to treat the stash as a stack with ideal size 0 or 1.
+There's more to stashing than this, but I reserve `git stash` for quickly hiding the dirty parts of a branch (if I want to change branches without committing changes, for example). I prefer to treat the stash as a stack with ideal size 0 or 1.
 
 ##Tagging
 Tagging can be super useful if you're working on a repository with [semantic versioning](http://semver.org/):
@@ -165,42 +162,47 @@ Adding the `-a` and `-m` options allows you to add annotations to the tag
 ##Staging and commits
 __Warning: be *very* careful when amending or resetting. Generally, you should *not* use these commands if the commit has already been pushed.__
 
-Unstage a staged file
+###Unstage a staged file
 ```bash
 Git reset HEAD <file>
 ```
-Blow away all changes to a file since last commit
+
+###Blow away all changes to a file since the last commit
 ```bash
 git checkout --<file>
 ```
-Add staged files to the last commit
+
+###Add staged files to the last commit
 ```bash
 git commit --amend -m "<New commit message>"
 ```
-Undo last commit (changes into staging)
+
+###Undo last commit (changes into staging)
 ```bash
 git reset --soft HEAD^
 ```
-Undo last commit and all changes
+
+###Undo last commit and all changes
 ```bash
 git reset --hard HEAD^
 ```
-Undo last 2 commits and all changes
+
+###Undo last 2 commits and all changes
 ```bash
 git reset --hard HEAD^^
 ```
 
 #Terminology
-__master__ : default branch
-__origin__ : conventional name for the default upstream repo
-__HEAD__ : latest (or currently checked-out) commit
-_[More...](http://stackoverflow.com/questions/7076164/terminology-used-by-git)_
+ - __master__ : default branch
+ - __origin__ : conventional name for the default upstream repo
+ - __HEAD__ : latest (or currently checked-out) commit
+ - _[More...](http://stackoverflow.com/questions/7076164/terminology-used-by-git)_
 
 
 #<a id="refs"></a>Useful references
-```bash
+ - ```bash
 git help <command>  #alternatively, check out the [git(1) Manual Page](https://www.kernel.org/pub/software/scm/git/docs/)
 ```
-[Everyday Git](https://www.kernel.org/pub/software/scm/git/docs/everyday.html)
-[Pro Git](http://git-scm.com/book)
-Codeschool courses: [1](https://www.codeschool.com/courses/try-git), [2](https://www.codeschool.com/courses/git-real), and [3](https://www.codeschool.com/courses/git-real-2)
+ - [Everyday Git](https://www.kernel.org/pub/software/scm/git/docs/everyday.html)
+ - [Pro Git](http://git-scm.com/book)
+ - Codeschool courses: [1](https://www.codeschool.com/courses/try-git), [2](https://www.codeschool.com/courses/git-real), and [3](https://www.codeschool.com/courses/git-real-2)
