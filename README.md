@@ -173,9 +173,9 @@ __Warning: be *very* careful when amending or resetting. Generally, you should *
 Git reset HEAD <file>
 ```
 
-###Blow away all changes to a file since the last commit
+### Blow away all changes to a file since the last commit
 ```bash
-git checkout --<file>
+git checkout -- <filename_or_dir>  # "dot" '.' works for current dir
 ```
 
 ###Add staged files to the last commit
